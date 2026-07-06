@@ -157,7 +157,7 @@
   color: green;
 }
 
-.box-2, .article, .ads {
+.arrow-div, .box-2, .article, .ads {
   background-color: white;
   padding: 15px;
   border: 1px solid #ccc;
@@ -182,5 +182,35 @@
   -moz-border-radius: 6px;
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
+}
+
+.arrow-div {
+  font-size: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 200px;
+  height: 200px;
+  position: relative;
+  margin: 100px auto;
+}
+.arrow-div::before {
+  content: "";
+  position: absolute;
+  border: 20px solid transparent;
+  left: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  border-right-color: red;
 }
 /*# sourceMappingURL=main.css.map */
