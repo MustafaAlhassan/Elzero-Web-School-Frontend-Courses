@@ -8,6 +8,11 @@
 @use "./sass/variables/colors";
 // @use "./sass/variables/colors" as *; // for direct use without write colors. 
 
+// Import Mixins
+@use './sass/helpers/mixins' as *;
+
+// Import Functions
+@use "./sass/helpers/functions" as *;
 
 // Global Variable
 $alt_color: green;
@@ -293,5 +298,208 @@ $direction: 'left';
         } @else {
             @error "This Direction #{$direction} Is Not Valid";
         }
+    }
+}
+
+// Interpolation
+
+$company: "falcon";
+$position: "right";
+
+.ad-#{$company}-#{unique-id()} { // unique-id() is a built-in function
+    font-size: 20px;
+    background-image: url("imgs/#{$company}.png");
+    #{$position}: 0;
+}
+
+.ad-#{unique-id()} {
+    font-weight: bold;
+}
+
+// Comments
+
+// This Comment Will Not Show In CSS
+
+/* This Comment Will Show In CSS File But Not In Compressed Mode */
+/*! This Comment Will Show In CSS File But And In Compressed Mode */
+
+.box /* Multiple 
+Lines 
+Comment */ {
+    font-size: 20px; // Inline Comment
+}
+
+/* This Comment Contains Interpolation => #{$company} */
+
+/// Function To Do Bla Bla Bla
+/// 
+/// @param {num}
+/// The Number To Deal With
+/// @return {int}
+
+// Mixian And Include 
+
+ul.links {
+    @include list-reset;
+}
+
+.circle-100 {
+    @include circle(100px);
+    background-color: red;
+    color: white;
+}
+
+.circle-200 {
+    @include circle(200px);
+    background-color: red;
+    color: white;
+}
+
+.center-circle {
+    @include circle(400px);
+    @include centering;
+}
+
+
+// Loop => For
+
+@for $i from 1 through 10 { // from 1 to 10
+    .class-#{$i} {
+        font-size: #{$i + 10px};
+    }
+}
+
+@for $i from 1 to 10 { // from 1 to 9
+        .class-#{$i} {
+        font-size:  #{$i + 10px};
+    }
+}
+
+$dimensions: 0;
+
+@for $i from 1 through 10 {
+    .circle-#{100 + $dimensions} {
+        width:  $dimensions + 100px;
+        height:  $dimensions + 100px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+}
+    $dimensions: $dimensions + 100;
+}
+
+// Each + Maps
+
+$themes: red, green, blue;
+
+@each $theme in $themes {
+    .#{$theme}-theme {
+        .product {
+            background-color: white;
+            border-bottom: 2px solid $theme;
+            .title {
+                color: $theme;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+$socials: ('facebook': blue, 'youtube': red, 'github': black);
+
+@each $name, $color in $socials {
+    .#{$name} {
+        background-color: $color;
+        color:white;
+        &::before {
+            content: $name;
+        }
+    }
+}
+
+$classes: 'one' 20px red, "two" 15px green, "three" 22px blue;
+
+@each $class, $font, $color in $classes {
+    .#{$class} {
+        font-size: $font;
+        background-color: $color;
+        color: white;
+        padding: $font / 2;
+    }
+}
+
+// Loop => While 
+
+$start: 1;
+
+@while $start <= 10 {
+    .width-#{$start} {
+        width: $start * 100px;
+        height: ($start * 100px) / 2;
+    }
+    $start: $start + 1;
+}
+
+// Create Grid System
+
+$grid_cols: 12;
+
+@for $i from 1 through $grid_cols {
+    .col-#{$i} {
+        width: percentage($i / $grid_cols);
+    }
+}
+
+// Function 
+
+$width: 200px;
+
+.element {
+    width: $width;
+    height: half($width);
+    top: calculate(100px, 200px, 50px);
+}
+
+// Mixin With Content
+
+.black-overlay {
+    @include overlay(black, 0.5);
+}
+
+@include keyF(fade-in) {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@include keyF(go-up) {
+    from {
+        bottom: 0;
+    }
+    to {
+        bottom: 100px;
+    }
+}
+
+
+// If Condition + Mixin + content
+
+.media {
+    @include breakpoints(mobile) {
+        font-size: 15px;
+    }
+    @include breakpoints(small) {
+        font-size: 18px;
+    }
+    @include breakpoints(medium) {
+        font-size: 20px;
+    }
+    @include breakpoints(large) {
+        font-size: 22px;
     }
 }
