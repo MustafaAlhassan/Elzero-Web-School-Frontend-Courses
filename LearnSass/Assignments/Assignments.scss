@@ -1,0 +1,401 @@
+// Import vars
+@use "./sass/helpers/vars" as *;
+
+// Import Functions
+@use "./sass/helpers/functions" as *;
+
+// Import Functions
+@use "./sass/layout/header" as *;
+
+// Import Functions
+@use "./sass/layout/footer" as *;
+
+/* From Lesson 1 to 6 */
+
+/* Assignment 1 */
+.content {
+    > .box {
+        padding: 15px;
+        > .title {
+            font-size: 18px;
+        }
+    }
+    .cat {
+        padding: 15px;
+    }
+    &.premium {
+        &:before {
+            content: "Premium Box";
+        }
+        &:hover {
+            background-color: #eee;
+        }
+    }
+}
+
+/* Assignment 2 */
+.class > {
+    .child {
+        padding: 10px;
+    }
+}
+.class {
+    > .child {
+        padding: 10px;
+    }
+}
+.class {
+    > {
+        .child {
+            padding: 10px;
+        }
+    }
+}
+
+/* Assignment 3 */
+.class {
+    font: {
+        weight: bold;
+        size: 20px;
+    }
+}
+
+/* Assignment 4 */
+.parent {
+  & + .sibling {
+    margin: auto {
+      top: 10px;
+    }
+    & ~ .last {
+      padding: 10px;
+    }
+  }
+}
+
+/* Assignment 5 */
+.widget {
+  background-color: white;
+  padding: 20px;
+}
+.main-border {
+  border: 1px solid #CCC
+}
+.my-class {
+  @extend .widget, .main-border;
+  font-weight: bold;
+  margin: 20px auto;
+}
+
+/* Assignment 6 */
+%widget {
+  background-color: white;
+  padding: 20px;
+}
+%main-border {
+  border: 1px solid #CCC
+}
+.my-class {
+  @extend %widget, %main-border;
+  font-weight: bold;
+  margin: 20px auto;
+}
+
+/* Assignment 7 */
+.box {
+    h2 {
+        font-size: 20px;
+    }
+    p {
+        font-size: 20px;
+    }
+}
+$phone_screen: "max-width: 575px";
+@media ($phone_screen) {
+  .box {
+    h2, p {
+        font-size: 16px;
+        span {
+            font-weight: bold;
+        }
+    }
+  }
+}
+
+
+/* Assignment 8 */
+$red: #e91e63;
+$green: #009688;
+
+$link-color: $green;
+$link-hover: $red;
+
+.box a {
+  color: $link-color;
+  &:hover {
+    color: $link-hover;
+  }
+}
+
+/* Assignment 10 */
+.box {
+    font-size: 20px;
+    &-holder {
+        width: 1000px;
+        &-content {
+            margin: auto;
+        }
+    }
+}
+
+
+/* From Lesson 7 to 10 */
+
+/* Assignment 1 */
+
+$main: "school";
+$child: "box";
+$language: "ar"; // Arabic
+$gap: 20px;
+
+.#{$main} {
+    padding: $gap;
+    @if $language == 'en' {
+        direction: ltr;
+    } @else if $language == 'ar' {
+        direction: rtl;
+    }
+    margin-left: $main;
+}
+
+.#{$main} .#{$main}-#{$child} {
+    padding: $gap / 2;
+}
+
+.#{$main} {
+    &:hover {
+        .#{$main}-#{$child} {
+            background-color: #eee;
+        }
+    }
+}
+
+/* Assignment 2 */
+
+$main-color: red;
+$alt-color: blue;
+
+// Needed Output
+/* Theme Version: 1.0 */
+/* Website Theme Main Color Is: #{$main-color} */
+/* Website Theme Alternate Color Is: #{$alt-color} */
+
+
+/* Assignment 3 */
+
+$number: 7;
+
+// Larger Than 8
+.class {
+    @if $number > 8 {
+        color: blue;
+    } @else if $number > 5 {
+        color: green;
+    } @else {
+        color: red;
+    }
+}
+
+/* Assignment 4 */
+
+// SASS Code
+$number: 10;
+$color: red;
+$theme: light;
+
+// Write If Condition Code Here
+
+// Output
+@if $number > 5 and $color == red and not ($theme == dark) {
+    .class {
+        color: red;
+    }
+}
+
+/* Assignment 5 */
+$number: 10;
+
+.box {
+    @if $number > 8 {
+        background-color: #EEE;
+        @if $number > 9 {
+            text-align: center;
+        }
+    }
+}
+
+/* From Lesson 11 to 15 */
+
+/* Assignment 1 */
+
+@mixin arrow($direction) {
+    content: "";
+    position: absolute;
+    border: 20px solid transparent;
+    @if $direction == "top" {
+        left: 50%;
+        transform: translateX(-50%);
+        top: -40px;
+        border-bottom-color: red;
+    } @else if $direction == "right" {
+        top: 50%;
+        transform: translateY(-50%);
+        right: -40px;
+        border-left-color: red;
+    } @else if $direction == "bottom" {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -40px;
+        border-top-color: red;
+    } @else if $direction == "left" {
+        top: 50%;
+        transform: translateY(-50%);
+        left: -40px;
+        border-right-color: red;
+    } @else {
+        @error "This Direction #{$direction} Is Not Valid";
+    }
+}
+
+.element {
+    &:before {
+        @include arrow("left");
+    }
+}
+
+/* Assignment 2 */
+$grid_cols: 16;
+
+@for $i from 1 through $grid_cols {
+    .col-#{$i} {
+        width: percentage($i / $grid_cols);
+    }
+}
+
+/* Assignment 3 */
+$names:
+  "books" 20px red 18,
+  "games" 30px green 18,
+  "dvds" 20px blue;
+
+@each $class, $padding, $color, $font in $names {
+    .#{$class} {
+        padding: $padding;
+        @if $font == null {
+            font-size: 16px;
+        } @else {
+            font-size: $font + px;
+        }
+        border-bottom: 2px solid $color;
+        color: #444;
+    }
+}
+
+/* Assignment 4 */
+$init: 1;
+
+@while $init <= 5 {
+    .circle-#{$init * 100} {
+        width: $init * 100px;
+        height: $init * 100px;
+        border-radius: ($init * 100px) / 2;
+        -webkit-border-radius: ($init * 100px) / 2;
+        -moz-border-radius: ($init * 100px) / 2;
+        -ms-border-radius: ($init * 100px) / 2;
+        -o-border-radius: ($init * 100px) / 2;
+}
+    $init: $init + 1;
+}
+
+/* Assignment 5 */
+@for $init from 1 through 5 {
+    .circle-#{$init * 100} {
+        width: $init * 100px;
+        height: $init * 100px;
+        border-radius: ($init * 100px) / 2;
+        -webkit-border-radius: ($init * 100px) / 2;
+        -moz-border-radius: ($init * 100px) / 2;
+        -ms-border-radius: ($init * 100px) / 2;
+        -o-border-radius: ($init * 100px) / 2;
+    }
+}
+
+/* Assignment 6 */
+@mixin placeholder {
+    &.placeholder {
+        @content;
+    }
+    &:-moz-placeholder {
+        @content;
+    }
+    &::-moz-placeholder {
+        @content;
+    }
+    &:-ms-input-placeholder {
+        @content;
+    }
+    &::-webkit-input-placeholder {
+        @content;
+    }
+}
+
+textarea {
+    @include placeholder {
+        color: #777;
+    }
+}
+
+/* Assignment 7 */
+@mixin flex-center ($width: 400px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $width;
+}
+.box-one {
+    @include flex-center(400px);
+}
+.box-two {
+    @include flex-center;
+}
+
+/* From Lesson 16 to 19 */
+
+/* Assignment 1 */
+$num: 2;
+$start: 100;
+
+@function double($size) {
+  @return $size * $num;
+}
+
+@while $start <= 2000 {
+    .box-#{$start} {
+        width: $start + px;
+        height: double($start) + px;
+    }
+    $start: double($start);
+}
+
+/* Assignment 2 */
+@function get-total($sizes...) {
+    $total: 0;
+    @each $size in $sizes {
+        $total: $total + $size;
+    }
+    @return $total;
+}
+
+.box {
+    top: get-total(100, 50, 20);
+    right: get-total(100, 50);
+}
