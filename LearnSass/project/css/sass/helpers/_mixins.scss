@@ -1,0 +1,35 @@
+/*
+ ** Media Query Mixin For Help Only
+ ** Demo Version ONly For The Course
+*/
+@mixin maxMobile {
+    @media #{$maxMobile} {
+        @content;
+    }
+}
+@mixin minSmall {
+    @media #{$minSmall} {
+        @content;
+    }
+}
+@mixin minMedium {
+    @media #{$minMedium} {
+        @content;
+    }
+}
+@mixin minLarge {
+    @media #{$minLarge} {
+        @content;
+    }
+}
+
+/*
+ ** Overlay Mixin
+*/
+@mixin overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
