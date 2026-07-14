@@ -23,13 +23,113 @@
   margin: auto;
   padding-left: 15px;
   padding-right: 15px;
+  position: relative;
 }
 
+.head-with-border {
+  position: relative;
+}
+.head-with-border h2 {
+  text-align: center;
+  background-color: #e2494c;
+  color: white;
+  margin: 40px auto;
+  border-radius: 15px;
+  width: 400px;
+  padding: 10px 15px;
+  text-transform: uppercase;
+}
+.head-with-border h2:before {
+  content: "";
+  width: 100%;
+  height: 1.5px;
+  position: absolute;
+  background-color: #d9d9d9;
+  left: 0;
+  top: 50%;
+  z-index: -1;
+}
+
+body {
+  background-color: #f6f6f6;
+}
+body font {
+  size: 16px;
+  family: Tahoma;
+}
+
+ul, ol {
+  list-style: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.header {
+  padding: 20px 0;
+  overflow: hidden;
+  border-bottom: 1px Solid #9c9c9c;
+}
 .header .logo {
   width: 30%;
   float: left;
 }
+.header .logo h1 {
+  margin-bottom: 0;
+  margin-top: 10px;
+}
 .header .navbar {
   width: 70%;
   float: left;
+  background-color: #e2494c;
+  border-radius: 15px;
 }
+.header .navbar li {
+  width: 20%;
+  float: left;
+  font-size: 18px;
+  text-align: center;
+}
+.header .navbar li a {
+  display: block;
+  padding: 20px 10px;
+  color: #fff;
+  text-decoration: none;
+}
+.header .navbar li a:hover {
+  color: #d9d9d9;
+}
+
+/* Start Slider */
+.slider q {
+  display: block;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 500;
+  font-family: Tahoma, Arial;
+  line-height: 1.7;
+  text-align: center;
+  color: #9c9c9c;
+  width: 80%;
+  margin: 30px auto;
+}
+.slider img {
+  max-width: 100%;
+}
+.slider .bullets {
+  text-align: center;
+}
+.slider .bullets li {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #d9d9d9;
+  border-radius: 50%;
+  border: 3px solid #d9d9d9;
+  cursor: pointer;
+}
+.slider .bullets li.active, .slider .bullets li:hover {
+  border: 3px solid black;
+  background-color: white;
+}
+
+/* End Slider */
