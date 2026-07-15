@@ -2,6 +2,7 @@
 .slider {
     q {
         display: block;
+
         font: {
             size: 20px;
             style: italic;
@@ -42,3 +43,83 @@
 }
 
 /* End Slider */
+
+/* Start Services */
+.services {
+    .service-box {
+        float: $float-left;
+        width: (100% / 3);
+
+        &:not(:last-of-type) {
+            padding-right: 20px;
+        }
+
+        .service-title {
+            svg {
+                font-size: 35px;
+                position: relative;
+                top: 5px;
+            }
+
+            span {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+        }
+
+        .service-description {
+            color: $greyColor;
+            line-height: 1.5;
+        }
+
+        .link {
+            color: $redColor;
+            text-decoration: none;
+        }
+    }
+}
+/* End Services */
+
+/* Start Our Players */
+.our-players {
+    .player-box {
+        float: $float-left;
+        width: (100% / 5);
+        padding-right: 20px;
+        .player-img {
+            width: 100%;
+        }
+        .player-title {
+            font-weight: normal;
+            span {
+                font-weight: bold;
+            }
+        }
+    }
+
+    .player-description {
+        color: $greyColor;
+        line-height: 1.5;
+    }
+
+    .link {
+        color: $redColor;
+        text-decoration: none;
+    }
+}
+/* End Our Players */
+
+/* Start Lorem Ipsum */
+.lorem-ipsum {
+    .lorem-box {
+        float: $float-left;
+        width: (94% / 3);
+        &:not(:last-of-type) {
+            margin-right: 3%;
+        }
+        .lorem-img {
+            max-width: 100%;
+        }
+    }
+}
+/* End Lorem Ipsum */

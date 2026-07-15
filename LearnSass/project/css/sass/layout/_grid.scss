@@ -1,10 +1,26 @@
 * {
     @include prefixer(box-sizing, border-box, webkit moz);
 }
+
 .container {
-    width: 1200px;
     margin: auto;
     padding-left: 15px;
     padding-right: 15px;
     position: relative;
+
+    @include minSmall {
+        width: 750px;
+    }
+
+    @include minMedium {
+        width: 970px;
+    }
+
+    @include minLarge {
+        width: 1170px;
+    }
+}
+
+.clearfix {
+    clear: both;
 }

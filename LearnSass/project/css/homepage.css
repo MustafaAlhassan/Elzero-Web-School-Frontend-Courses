@@ -19,11 +19,45 @@
 }
 
 .container {
-  width: 1200px;
   margin: auto;
   padding-left: 15px;
   padding-right: 15px;
   position: relative;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+.clearfix {
+  clear: both;
+}
+
+.main-button {
+  background-color: rgba(226, 73, 76, 0.8);
+  color: #FFF;
+  border: none;
+  padding: 10px 15px;
+  text-align: center;
+  min-width: 120px;
+  border-radius: 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+}
+.main-button:hover {
+  background-color: #e2494c;
 }
 
 .head-with-border {
@@ -67,7 +101,7 @@ ul, ol {
 .header {
   padding: 20px 0;
   overflow: hidden;
-  border-bottom: 1px Solid #9c9c9c;
+  border-bottom: 1px Solid #717171;
 }
 .header .logo {
   width: 30%;
@@ -108,7 +142,7 @@ ul, ol {
   font-family: Tahoma, Arial;
   line-height: 1.7;
   text-align: center;
-  color: #9c9c9c;
+  color: #717171;
   width: 80%;
   margin: 30px auto;
 }
@@ -133,3 +167,159 @@ ul, ol {
 }
 
 /* End Slider */
+/* Start Services */
+.services .service-box {
+  float: left;
+  width: 33.3333333333%;
+}
+.services .service-box:not(:last-of-type) {
+  padding-right: 20px;
+}
+.services .service-box .service-title svg {
+  font-size: 35px;
+  position: relative;
+  top: 5px;
+}
+.services .service-box .service-title span {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.services .service-box .service-description {
+  color: #717171;
+  line-height: 1.5;
+}
+.services .service-box .link {
+  color: #e2494c;
+  text-decoration: none;
+}
+
+/* End Services */
+/* Start Our Players */
+.our-players .player-box {
+  float: left;
+  width: 20%;
+  padding-right: 20px;
+}
+.our-players .player-box .player-img {
+  width: 100%;
+}
+.our-players .player-box .player-title {
+  font-weight: normal;
+}
+.our-players .player-box .player-title span {
+  font-weight: bold;
+}
+.our-players .player-description {
+  color: #717171;
+  line-height: 1.5;
+}
+.our-players .link {
+  color: #e2494c;
+  text-decoration: none;
+}
+
+/* End Our Players */
+/* Start Lorem Ipsum */
+.lorem-ipsum .lorem-box {
+  float: left;
+  width: 31.3333333333%;
+}
+.lorem-ipsum .lorem-box:not(:last-of-type) {
+  margin-right: 3%;
+}
+.lorem-ipsum .lorem-box .lorem-img {
+  max-width: 100%;
+}
+
+/* End Lorem Ipsum */
+/* Start Footer */
+.footer {
+  background-color: #d9d9d9;
+  overflow-x: hidden;
+  padding-top: 30px;
+  margin-top: 50px;
+}
+.footer .gallery,
+.footer .info,
+.footer .contact {
+  float: left;
+}
+.footer .gallery {
+  width: 50%;
+}
+.footer .gallery .img-box {
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.footer .gallery .img-box img {
+  float: left;
+  width: 150px;
+  height: 150px;
+}
+.footer .gallery .img-box .text {
+  float: left;
+  margin-left: 15px;
+  margin-right: 15px;
+  width: calc(100% - 180px);
+}
+.footer .gallery .img-box .text h4 {
+  color: #e2494c;
+  margin: 15px 0 0;
+}
+.footer .gallery .img-box .text p {
+  color: #717171;
+  line-height: 1.8;
+  margin-top: 8px;
+}
+.footer .info {
+  width: 25%;
+}
+.footer .info ul {
+  color: #717171;
+  line-height: 1.6;
+}
+.footer .info ul li span {
+  color: #e2494c;
+}
+.footer .info h4 {
+  color: #717171;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.footer .info p {
+  color: #717171;
+  margin-top: 5px;
+}
+.footer .contact {
+  width: 25%;
+}
+.footer .contact input[type=text],
+.footer .contact input[type=email],
+.footer .contact textarea {
+  border: 1px solid #717171;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  width: 100%;
+}
+.footer .contact textarea {
+  height: 100px;
+}
+.footer .section-title {
+  font-weight: normal;
+}
+.footer .copyright {
+  padding: 25px 0;
+  border-top: 1px solid #717171;
+  overflow: hidden;
+  color: #717171;
+}
+.footer .copyright .text, .footer .copyright .author {
+  float: left;
+  width: 50%;
+}
+.footer .copyright .author {
+  text-align: right;
+}
+
+/* End Footer */

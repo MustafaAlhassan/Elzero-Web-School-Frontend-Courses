@@ -1,0 +1,104 @@
+/* Start Footer */
+.footer {
+    background-color: $lightGreyColor;
+    overflow-x: hidden;
+    padding-top: 30px;
+    margin-top: 50px;
+
+    .gallery,
+    .info,
+    .contact {
+        float: $float-left;
+    }
+
+    .gallery {
+        width: 50%;
+
+        .img-box {
+            overflow: hidden;
+            margin-bottom: 20px;
+
+            img {
+                float: $float-left;
+                width: 150px;
+                height: 150px;
+            }
+
+            .text {
+                float: $float-left;
+                margin-left: 15px;
+                margin-right: 15px;
+                width: calc(100% - 180px);
+                h4 {
+                    color: $redColor;
+                    margin: 15px 0 0;
+                }
+                p {
+                    color: $greyColor;
+                    line-height: 1.8;
+                    margin-top: 8px;
+                }
+            }
+        }
+    }
+
+    .info {
+        width: 25%;
+        ul {
+            color: $greyColor;
+            line-height: 1.6;
+            li {
+                span {
+                    color: $redColor;
+                }
+            }
+        }
+        h4 {
+            color: $greyColor;
+            font-weight: bold;
+            margin-bottom: 0;
+        }
+        p {
+            color: $greyColor;
+            margin-top: 5px;
+        }
+    }
+
+    .contact {
+        width: 25%;
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            border: 1px solid $greyColor;
+            padding: 10px;
+            margin-bottom: 5px;
+            @include prefixer(border-radius, 10px, webkit moz ms o);
+            width: 100%;
+        }
+        textarea {
+            height: 100px;
+        }
+    }
+
+    .section-title {
+        font-weight: normal;
+    }
+    .copyright {
+        padding: 25px 0;
+        border-top: 1px solid $greyColor;
+        overflow: hidden;
+        color: $greyColor;
+        .text, .author {
+            float: $float-left;
+            width: 50%;
+        }
+        .text {
+            
+        }
+        .author {
+            text-align: $text-right;
+        }
+    }
+}
+
+/* End Footer */
