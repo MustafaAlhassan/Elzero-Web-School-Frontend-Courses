@@ -1,31 +1,64 @@
+/* Start Header */
 .header {
     padding: 20px 0;
     overflow: hidden;
     border-bottom: 1px Solid $greyColor;
 
     .logo {
-        width: 30%;
-        float: $float-left;
+        position: relative;
+
+        @include minSmall {
+            width: 100%;
+            float: none;
+            text-align: center;
+        }
+
+        @include minMedium {
+            width: 30%;
+            float: $float-left;
+            text-align: $text-left;
+        }
 
         h1 {
             margin-bottom: 0;
             margin-top: 10px;
         }
-
-        p {}
     }
 
     .navbar {
-        width: 70%;
-        float: $float-left;
+        overflow: hidden;
         background-color: $redColor;
+
         @include prefixer(border-radius, 15px, webkit moz ms o);
+
+        @include minSmall {
+            width: 100%;
+            float: none;
+            margin-top: 30px;
+        }
+
+        @include minMedium {
+            width: 70%;
+            float: $float-left;
+            margin-top: 1em;
+        }
+
+        @include maxMobile {
+            display: none;
+            @include prefixer(border-radius, 0, webkit moz ms o);
+        }
 
         li {
             width: 20%;
             float: $float-left;
             font-size: 18px;
             text-align: center;
+
+            @include maxMobile {
+                display: block;
+                float: none;
+                width: 100%;
+            }
 
             a {
                 display: block;
@@ -40,3 +73,4 @@
         }
     }
 }
+/* End Header */

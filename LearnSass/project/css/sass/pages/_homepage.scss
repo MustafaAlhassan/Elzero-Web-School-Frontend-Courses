@@ -17,9 +17,22 @@
         margin: 30px auto;
     }
 
-    img {
-        max-width: 100%;
+    .img-wrapper {
+        position: relative;
+
+        &::before {
+            content: '';
+            @include overlay;
+            background-color: $greyColor;
+            z-index: 1;
+        }
+
+        img {
+            max-width: 100%;
+        }
     }
+
+
 
     .bullets {
         text-align: center;
@@ -47,11 +60,20 @@
 /* Start Services */
 .services {
     .service-box {
-        float: $float-left;
-        width: (100% / 3);
+        @include minMedium {
+            float: $float-left;
+            width: (100% / 3);
 
-        &:not(:last-of-type) {
-            padding-right: 20px;
+            &:not(:last-of-type) {
+                padding-right: 20px;
+            }
+        }
+
+        @include maxMobile {
+            i {
+                display: block;
+                margin-bottom: 15px;
+            }
         }
 
         .service-title {
@@ -78,19 +100,44 @@
         }
     }
 }
+
 /* End Services */
 
 /* Start Our Players */
 .our-players {
     .player-box {
-        float: $float-left;
-        width: (100% / 5);
-        padding-right: 20px;
+        @include maxMobile {
+            margin-bottom: 40px;
+        }
+
+        @include minSmall {
+            float: $float-left;
+            width: (100% / 2);
+            text-align: center;
+            margin-bottom: 40px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        @include minMedium {
+            width: (100% / 3);
+            text-align: $text-left;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        @include minLarge {
+            width: (100% / 5);
+            margin-bottom: 0;
+        }
+
         .player-img {
             width: 100%;
         }
+
         .player-title {
             font-weight: normal;
+
             span {
                 font-weight: bold;
             }
@@ -107,19 +154,31 @@
         text-decoration: none;
     }
 }
+
 /* End Our Players */
 
 /* Start Lorem Ipsum */
 .lorem-ipsum {
     .lorem-box {
-        float: $float-left;
-        width: (94% / 3);
-        &:not(:last-of-type) {
-            margin-right: 3%;
+        @include maxMobile {
+            &:not(:last-of-type) {
+                margin-bottom: 20px;
+            }
         }
+
+        @include minSmall {
+            float: $float-left;
+            width: (94% / 3);
+
+            &:not(:last-of-type) {
+                margin-right: 3%;
+            }
+        }
+
         .lorem-img {
             max-width: 100%;
         }
     }
 }
+
 /* End Lorem Ipsum */

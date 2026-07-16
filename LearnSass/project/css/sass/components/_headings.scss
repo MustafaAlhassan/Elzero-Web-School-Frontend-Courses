@@ -1,5 +1,6 @@
 .head-with-border {
     position: relative;
+
     h2 {
         text-align: center;
         background-color: $redColor;
@@ -7,6 +8,11 @@
         margin: 40px auto;
         @include prefixer(border-radius, 15px, webkit moz ms o);
         width: 400px;
+
+        @include maxMobile {
+            max-width: 300px;
+        }
+
         padding: 10px 15px;
         text-transform: uppercase;
 
