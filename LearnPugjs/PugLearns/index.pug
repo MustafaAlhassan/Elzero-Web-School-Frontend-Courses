@@ -1,0 +1,119 @@
+include includes/myvars
+include includes/mymixins
+
+mixin skillList
+    ul 
+        li PHP 
+        li MySQL 
+        li Laravel 
+
+
+doctype
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(name="description" content="Learn PugJs")
+        title My Resume
+        include includes/styles.pug
+    body
+        block PageInfo 
+            main Main Page Content
+        block testingContent 
+            .main This Content From Main Page
+        .container
+        #contain
+        a.link
+        div(class='main-container' id='main')
+            +feature("Cheap Price")
+            +feature("Fast Support")
+            // Start My Skills
+            h2 My Skills
+            +skillList
+            ul 
+                li(class=variable) PHP
+                li(class=variable)   MySQL 
+                li  Sass #{themeName.toUpperCase()}
+                li pugJs #{themeTag}
+                li pugJs !{themeTag}
+                li pugJs \!{themeTag}
+                li pugJs \#{themeTag}
+                    span Test
+            ul 
+                - for (var x = 0; x <= 10; x++)
+                    li Item #{x}
+            - var z = 0
+            ul 
+                while z < 20
+                    li= z++
+            - var className = 'font'
+            div(class=className) Parent Div 
+                div(class=className) Child Div
+
+            p.inter This Is Interpolation #[b Test] Text After Element
+
+            //- This Is Each Loop
+            - var myArray = [1, "Two", 3, "Four", 5, 6, "Seven", 8]
+            each val in myArray
+                div= val
+
+            each val, index in myArray
+                div= index
+
+            - var myArray1 = []
+            each val, index in myArray1
+                div= index
+            else 
+                div Theres No Value
+
+            div= 'This <strong>Tag<strong> will not appear'
+            div!= 'This <strong>Tag<strong> will not appear'
+
+            // End My Skills
+            div: a This Is Link
+            //- comment for pugjs Template Engin
+            div: a: img
+            p.main-paragraph Lorem
+            p#main-p lorem ipsum <strong>Test</strong>
+            // 
+                Testing Comments
+                Second Line Comment
+            //-
+                Testing Comments
+                Second Line Comment
+            p
+                | I Love 
+                b PugJs 
+                |  And 
+                b Sass
+                |
+                .
+                    Text 
+                    Hello
+            |
+            | This Text Belong To ?
+
+            form
+                h2.contact-title Contact Me 
+                input(
+                    class='f-c', 
+                    type="text", 
+                    name='user'
+                    )
+                input(class='f-c' type="email" name='email')
+                input(class='f-c' type="text" name='subj')
+                button(style='background-color: red') Send 
+                button(style={'background-color': 'red'}) Reset
+            
+            - var friends = 2
+            
+            case friends 
+                when 0
+                    p you have no friends 
+                when 1
+                    p you have one friend
+                default 
+                    p you have #{friends} friends
+        script(src='js/main.js')
+
+
+
