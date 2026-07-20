@@ -1,0 +1,15 @@
+{
+  "name": "jest_testing",
+  "version": "1.0.0",
+  "description": "For Unit Testing Course",
+  "license": "ISC",
+  "author": "Mustafa Alhassan",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watchAll"
+  },
+  "devDependencies": {
+    "jest": "^30.4.2"
+  }
+}
