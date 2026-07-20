@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+}
+
+.footer {
+  display: flex;
+  color: red;
+}
+
+.content {
+  display: flex;
+  color: red;
+}
